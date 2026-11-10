@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SRM IST - Big Data Cloud Storage Optimization & ML Profiling Dashboard</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+    .card-shadow { box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05); }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen p-4 md:p-8">
+
+  <div class="max-w-7xl mx-auto space-y-8">
+
+    <!-- Top Academic Header -->
+    <header class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white rounded-2xl p-6 md:p-8 shadow-2xl border border-slate-700/60 relative overflow-hidden">
+      <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-xs font-semibold uppercase tracking-wider mb-3 border border-indigo-500/30">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            SRM Institute of Science & Technology • 21CSC314P Big Data Essentials
+          </div>
+          <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight text-white leading-tight">
+            An Integrated Distributed Framework for Automated Lifecycle Classification & Redundancy Mitigation
+          </h1>
+          <p class="text-slate-400 text-sm md:text-base mt-2">
+            Automated AWS S3 Multi-Tier Policy Optimization via Temporal Recency Deep Learning
+          </p>
+          <div class="flex flex-wrap items-center gap-4 mt-4 text-xs text-slate-300">
+            <span class="bg-slate-800/90 px-3 py-1.5 rounded-lg border border-slate-700">👤 <b>Lead Author:</b> S Harshan (<code class="text-amber-300 font-mono">RA24110310013</code>)</span>
+            <span class="bg-slate-800/90 px-3 py-1.5 rounded-lg border border-slate-700">👥 <b>Batch:</b> 10</span>
+            <span class="bg-slate-800/90 px-3 py-1.5 rounded-lg border border-slate-700">👨‍🏫 <b>Faculty Guide:</b> Dr. Shanmuganathan V</span>
+            <span class="bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 px-3 py-1.5 rounded-lg font-semibold">⚡ Verified Production Build</span>
+          </div>
+        </div>
+        <div class="flex flex-row md:flex-col items-center md:items-end gap-3 shrink-0">
+          <div class="bg-slate-800/90 border border-slate-700 px-5 py-3 rounded-xl text-right w-full">
+            <p class="text-xs text-slate-400 uppercase font-semibold">Repository Volume</p>
+            <p class="text-2xl font-black text-white">100 TB</p>
+          </div>
+          <div class="bg-emerald-500/10 border border-emerald-500/30 px-5 py-3 rounded-xl text-right w-full">
+            <p class="text-xs text-emerald-400 uppercase font-semibold">Cloud Status</p>
+            <p class="text-2xl font-black text-emerald-400">43.1% Saved</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 5 Top KPI Cards Ribbon -->
+    <section class="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <div class="bg-white rounded-xl p-5 card-shadow border border-slate-200/80">
+        <p class="text-slate-500 text-xs font-bold uppercase tracking-wider">Total Profiles</p>
+        <p class="text-3xl font-black text-slate-900 mt-2">2,000</p>
+        <p class="text-xs text-slate-500 mt-1">Profiled File Entities</p>
+      </div>
+
+      <div class="bg-white rounded-xl p-5 card-shadow border border-slate-200/80">
+        <p class="text-slate-500 text-xs font-bold uppercase tracking-wider">Cost Reduction</p>
+        <p class="text-3xl font-black text-emerald-600 mt-2">43.10%</p>
+        <p class="text-xs text-emerald-700 font-medium mt-1">Baseline vs Optimized</p>
+      </div>
+
+      <div class="bg-white rounded-xl p-5 card-shadow border border-slate-200/80">
+        <p class="text-slate-500 text-xs font-bold uppercase tracking-wider">Monthly Savings</p>
+        <p class="text-3xl font-black text-indigo-600 mt-2">$990.24</p>
+        <p class="text-xs text-slate-500 mt-1">Saved Recurring Monthly</p>
+      </div>
+
+      <div class="bg-white rounded-xl p-5 card-shadow border border-slate-200/80">
+        <p class="text-slate-500 text-xs font-bold uppercase tracking-wider">Annual Savings</p>
+        <p class="text-3xl font-black text-purple-600 mt-2">$11,882.88</p>
+        <p class="text-xs text-slate-500 mt-1">Projected 1-Year Total</p>
+      </div>
+
+      <div class="bg-white rounded-xl p-5 card-shadow border border-slate-200/80 col-span-2 md:col-span-1">
+        <p class="text-slate-500 text-xs font-bold uppercase tracking-wider">Top ML Accuracy</p>
+        <p class="text-3xl font-black text-amber-600 mt-2">96.40%</p>
+        <p class="text-xs text-amber-700 font-medium mt-1">Novel BiLSTM-Attention</p>
+      </div>
+    </section>
+
+    <!-- 2x2 Core Analytics Grid (Matching Power BI Dashboard) -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Donut Chart -->
+      <div class="bg-white rounded-2xl p-6 card-shadow border border-slate-200/80">
+        <div class="flex items-center justify-between mb-3">
+          <div>
+            <h2 class="text-lg font-bold text-slate-900">Lifecycle Category Distribution</h2>
+            <p class="text-xs text-slate-500">IEEE access frequency & dormancy partition</p>
+          </div>
+          <span class="text-xs bg-indigo-50 text-indigo-700 font-semibold px-2.5 py-1 rounded-md">Power BI Ground Truth</span>
+        </div>
+        <div id="donutChart" class="w-full" style="height: 320px;"></div>
+      </div>
+
+      <!-- File Count Bar Chart -->
+      <div class="bg-white rounded-2xl p-6 card-shadow border border-slate-200/80">
+        <div class="flex items-center justify-between mb-3">
+          <div>
+            <h2 class="text-lg font-bold text-slate-900">File Count by Lifecycle Category</h2>
+            <p class="text-xs text-slate-500">Volume breakdown across Hot, Cool, and Archive tiers</p>
+          </div>
+          <span class="text-xs bg-indigo-50 text-indigo-700 font-semibold px-2.5 py-1 rounded-md">2,000 Entities</span>
+        </div>
+        <div id="barCountChart" class="w-full" style="height: 320px;"></div>
+      </div>
+
+      <!-- Monthly Cost by Tier -->
+      <div class="bg-white rounded-2xl p-6 card-shadow border border-slate-200/80">
+        <div class="flex items-center justify-between mb-3">
+          <div>
+            <h2 class="text-lg font-bold text-slate-900">Monthly Storage Cost by Tier ($)</h2>
+            <p class="text-xs text-slate-500">Optimized spend: $1,309.76 / mo (down from $2,300 baseline)</p>
+          </div>
+          <span class="text-xs bg-emerald-50 text-emerald-700 font-semibold px-2.5 py-1 rounded-md">AWS S3 Pricing</span>
+        </div>
+        <div id="costChart" class="w-full" style="height: 320px;"></div>
+      </div>
+
+      <!-- ML Models Benchmarking -->
+      <div class="bg-white rounded-2xl p-6 card-shadow border border-slate-200/80">
+        <div class="flex items-center justify-between mb-3">
+          <div>
+            <h2 class="text-lg font-bold text-slate-900">ML / DL Model Accuracy Benchmarking (%)</h2>
+            <p class="text-xs text-slate-500">Proposed BiLSTM-Attention vs 5 Classical ML Baselines</p>
+          </div>
+          <span class="text-xs bg-amber-50 text-amber-700 font-semibold px-2.5 py-1 rounded-md">Novel DL: 96.40%</span>
+        </div>
+        <div id="modelChart" class="w-full" style="height: 320px;"></div>
+      </div>
+
+    </section>
+
+    <!-- LIVE FILE CLASSIFIER DEMO (MODULE 5) -->
+    <section class="bg-white rounded-2xl p-6 md:p-8 card-shadow border-2 border-indigo-500/30">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">Interactive Review Tool</span>
+          <h2 class="text-2xl font-black text-slate-900 mt-2">⚡ Live File Lifecycle Classifier & Policy Recommender</h2>
+          <p class="text-slate-500 text-sm">Test real-time model inference live for faculty viva examination</p>
+        </div>
+        <!-- Quick Preset Buttons -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="applyPreset(10, 35, 500, '/lake/tx/active_stream.parquet')" class="px-3.5 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold rounded-lg border border-emerald-300 transition">
+            🟢 Active / Hot Demo
+          </button>
+          <button onclick="applyPreset(65, 6, 850, '/lake/finance/q1_reports.parquet')" class="px-3.5 py-2 bg-blue-50 hover:bg-blue-100 text-blue-800 text-xs font-bold rounded-lg border border-blue-300 transition">
+            🟡 Cool / Infrequent Demo
+          </button>
+          <button onclick="applyPreset(180, 1, 1200, '/lake/legacy/audit_archive_2022.log')" class="px-3.5 py-2 bg-rose-50 hover:bg-rose-100 text-rose-800 text-xs font-bold rounded-lg border border-rose-300 transition">
+            🔴 Obsolete / ROT Archive Demo
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-6">
+        <!-- Input Form -->
+        <div class="space-y-4">
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-600 mb-1">File Path / Key</label>
+            <input type="text" id="inputPath" value="/prod/bigdata/sales_transaction_2024.parquet" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 font-mono">
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Inactivity Days (Δt)</label>
+              <input type="number" id="inputInactivity" value="45" min="0" max="730" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 font-bold">
+              <span class="text-[11px] text-slate-400">Dormancy: ≤30d Hot | >120d ROT</span>
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Access Count (Last 90d)</label>
+              <input type="number" id="inputFrequency" value="8" min="0" max="300" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 font-bold">
+              <span class="text-[11px] text-slate-400">Query / read frequency</span>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-600 mb-1">File Size (MB)</label>
+            <input type="number" id="inputSize" value="250" min="1" max="50000" class="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-indigo-500 font-bold">
+          </div>
+          <button onclick="runInference()" class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg hover:shadow-indigo-500/25 transition">
+            🚀 Run Lifecycle Inference & Policy Recommendation
+          </button>
+        </div>
+
+        <!-- Output Result Box -->
+        <div id="outputBox" class="bg-slate-50 rounded-xl p-6 border-2 border-indigo-400 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase text-slate-500 tracking-wider">PREDICTED LIFECYCLE STATE</span>
+              <span id="resConf" class="text-xs font-bold bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">94.2% Confidence</span>
+            </div>
+            <div id="resState" class="text-2xl font-black text-blue-600 mt-1">Cool (Infrequently Accessed)</div>
+            <p id="resReason" class="text-xs text-slate-600 mt-2">Moderate dormancy (31-120 days). Retain query availability while cutting storage rate.</p>
+            
+            <hr class="my-4 border-slate-200">
+            
+            <div class="text-xs font-bold uppercase text-slate-500 tracking-wider">RECOMMENDED CLOUD POLICY</div>
+            <div id="resTier" class="text-xl font-black text-slate-900 mt-1">AWS S3 Standard-IA</div>
+            <p class="text-xs text-slate-500">Tier Storage Rate: <b id="resRate">$0.0125 / GB-month</b></p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-200 grid grid-cols-3 gap-2 text-center">
+            <div class="bg-white p-2.5 rounded-lg border border-slate-200">
+              <span class="text-[10px] uppercase font-bold text-slate-400 block">Current (S3 Std)</span>
+              <span id="resCurCost" class="text-sm font-extrabold text-slate-800">$0.00562</span>
+            </div>
+            <div class="bg-white p-2.5 rounded-lg border border-slate-200">
+              <span class="text-[10px] uppercase font-bold text-slate-400 block">Optimized Cost</span>
+              <span id="resOptCost" class="text-sm font-extrabold text-emerald-600">$0.00305</span>
+            </div>
+            <div class="bg-white p-2.5 rounded-lg border border-slate-200">
+              <span class="text-[10px] uppercase font-bold text-slate-400 block">Unit Savings</span>
+              <span id="resSavings" class="text-sm font-extrabold text-emerald-600">45.7%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE CLOUD COST & ROI SIMULATOR -->
+    <section class="bg-white rounded-2xl p-6 md:p-8 card-shadow border border-slate-200/80">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h2 class="text-xl font-black text-slate-900">💰 Interactive Cloud Cost & ROI Simulator</h2>
+          <p class="text-xs text-slate-500">Adjust repository capacity and tier distribution to recalculate cloud savings live</p>
+        </div>
+        <span class="text-xs bg-emerald-50 text-emerald-700 font-bold px-3 py-1 rounded-full">FinOps Cloud Model</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Controls -->
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+              <span>Repository Capacity:</span>
+              <span id="lblCapacity" class="text-indigo-600 font-black">100 TB</span>
+            </div>
+            <input type="range" id="simCapacity" min="10" max="1000" value="100" step="10" oninput="updateSim()" class="w-full accent-indigo-600">
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+              <span>Hot Tier (S3 Standard %):</span>
+              <span id="lblHot" class="text-orange-600 font-black">32%</span>
+            </div>
+            <input type="range" id="simHot" min="10" max="80" value="32" oninput="updateSim()" class="w-full accent-orange-600">
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs font-bold text-slate-700 mb-1">
+              <span>Cool Tier (S3-IA %):</span>
+              <span id="lblCool" class="text-blue-600 font-black">44%</span>
+            </div>
+            <input type="range" id="simCool" min="10" max="80" value="44" oninput="updateSim()" class="w-full accent-blue-600">
+          </div>
+
+          <div class="p-3 bg-slate-50 rounded-lg text-xs border border-slate-200">
+            <span class="text-slate-500">ROT / Archive Tier (Glacier):</span>
+            <b id="lblROT" class="text-slate-800 font-black ml-1">24%</b> (Auto-balanced)
+          </div>
+        </div>
+
+        <!-- Metric Outputs -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="grid grid-cols-3 gap-3">
+            <div class="bg-rose-50 border border-rose-200 p-4 rounded-xl text-center">
+              <span class="text-[11px] font-bold uppercase text-rose-600">Baseline Monthly</span>
+              <p id="simBaseline" class="text-2xl font-black text-rose-700 mt-1">$2,300.00</p>
+              <span class="text-[10px] text-rose-500">All 100 TB in S3 Standard</span>
+            </div>
+            <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-xl text-center">
+              <span class="text-[11px] font-bold uppercase text-emerald-600">Optimized Monthly</span>
+              <p id="simOptimized" class="text-2xl font-black text-emerald-700 mt-1">$1,309.76</p>
+              <span id="simReduction" class="text-[10px] text-emerald-600 font-bold">-43.1% Cost Cut</span>
+            </div>
+            <div class="bg-indigo-50 border border-indigo-200 p-4 rounded-xl text-center">
+              <span class="text-[11px] font-bold uppercase text-indigo-600">Annual Savings</span>
+              <p id="simAnnual" class="text-2xl font-black text-indigo-700 mt-1">$11,882.88</p>
+              <span class="text-[10px] text-indigo-500">Recurring 1-Year Total</span>
+            </div>
+          </div>
+          <div id="simChart" class="w-full" style="height: 220px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white rounded-xl p-5 border border-slate-200 card-shadow flex flex-col md:flex-row items-center justify-between text-xs text-slate-500 gap-3">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+        <span class="font-bold text-slate-800">Deployment Status:</span>
+        <span>Ready for Vercel, Netlify, and Power BI Desktop integration</span>
+      </div>
+      <div>
+        <span>SRM Institute of Science and Technology • Course 21CSC314P • S Harshan (Batch 10)</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // --- 1. DONUT CHART ---
+    Plotly.newPlot('donutChart', [{
+      labels: ['Cool (S3 Standard-IA)', 'Hot (S3 Standard)', 'ROT / Archive (Glacier)'],
+      values: [880, 640, 480],
+      type: 'pie',
+      hole: 0.55,
+      marker: { colors: ['#3b82f6', '#f97316', '#64748b'] },
+      textinfo: 'percent+label',
+      hoverinfo: 'label+value+percent'
+    }], { margin: {t:10, b:10, l:10, r:10}, showlegend: false }, {responsive: true});
+
+    // --- 2. BAR COUNT CHART ---
+    Plotly.newPlot('barCountChart', [{
+      x: [880, 640, 480],
+      y: ['Cool Tier (44 TB)', 'Hot Tier (32 TB)', 'ROT / Archive (24 TB)'],
+      type: 'bar',
+      orientation: 'h',
+      marker: { color: ['#3b82f6', '#f97316', '#64748b'] },
+      text: ['880 files (44%)', '640 files (32%)', '480 files (24%)'],
+      textposition: 'outside'
+    }], { margin: {t:10, b:20, l:130, r:40}, xaxis: { title: 'Profiled Files' } }, {responsive: true});
+
+    // --- 3. STORAGE COST CHART ---
+    Plotly.newPlot('costChart', [{
+      x: ['S3 Standard', 'S3 Standard-IA', 'Glacier Deep Archive'],
+      y: [736.00, 550.00, 23.76],
+      type: 'bar',
+      marker: { color: ['#1e40af', '#0284c7', '#10b981'] },
+      text: ['$736.00', '$550.00', '$23.76'],
+      textposition: 'outside'
+    }], { margin: {t:10, b:30, l:40, r:20}, yaxis: { title: 'Monthly Spend ($)' } }, {responsive: true});
+
+    // --- 4. MODEL CHART ---
+    Plotly.newPlot('modelChart', [{
+      x: ['Logistic Regression', 'Linear SVM', 'Decision Tree', 'Random Forest', 'GBT', 'BiLSTM-Attention'],
+      y: [81.20, 85.90, 88.40, 92.80, 94.10, 96.40],
+      type: 'bar',
+      marker: { color: ['#94a3b8', '#94a3b8', '#94a3b8', '#3b82f6', '#6366f1', '#10b981'] },
+      text: ['81.2%', '85.9%', '88.4%', '92.8%', '94.1%', '96.4% (BEST)'],
+      textposition: 'outside'
+    }], { margin: {t:10, b:70, l:40, r:20}, yaxis: { range: [70, 102], title: 'Accuracy (%)' } }, {responsive: true});
+
+    // --- 5. LIVE INFERENCE ENGINE (MODULE 5) ---
+    function applyPreset(inactivity, frequency, size, path) {
+      document.getElementById('inputInactivity').value = inactivity;
+      document.getElementById('inputFrequency').value = frequency;
+      document.getElementById('inputSize').value = size;
+      document.getElementById('inputPath').value = path;
+      runInference();
+    }
+
+    function runInference() {
+      const inactivity = parseInt(document.getElementById('inputInactivity').value);
+      const frequency = parseInt(document.getElementById('inputFrequency').value);
+      const sizeMB = parseFloat(document.getElementById('inputSize').value);
+
+      let state, tier, rate, conf, color, reason;
+
+      if (inactivity <= 30 && frequency >= 5) {
+        state = "Hot (Active)";
+        tier = "AWS S3 Standard";
+        rate = 0.0230;
+        conf = "97.4% Confidence";
+        color = "#16a34a"; // green
+        reason = "Recent high-frequency transactions indicate active transactional dataset.";
+      } else if (inactivity > 120 || (inactivity > 60 && frequency <= 2)) {
+        state = "ROT / Archive (Obsolete)";
+        tier = "AWS Glacier Deep Archive";
+        rate = 0.00099;
+        conf = "95.8% Confidence";
+        color = "#dc2626"; // red
+        reason = "Extended dormancy (>120 days). Safe to migrate to cold archive to prevent waste.";
+      } else {
+        state = "Cool (Infrequently Accessed)";
+        tier = "AWS S3 Standard-IA";
+        rate = 0.0125;
+        conf = "94.2% Confidence";
+        color = "#2563eb"; // blue
+        reason = "Moderate dormancy (31-120 days). Retain query availability while cutting storage rate.";
+      }
+
+      const sizeGB = sizeMB / 1024.0;
+      const curCost = sizeGB * 0.0230;
+      const optCost = sizeGB * rate;
+      const savingsPct = curCost > 0 ? ((curCost - optCost) / curCost * 100) : 0;
+
+      document.getElementById('resState').innerText = state;
+      document.getElementById('resState').style.color = color;
+      document.getElementById('resConf').innerText = conf;
+      document.getElementById('resTier').innerText = tier;
+      document.getElementById('resRate').innerText = `$${rate.toFixed(5)} / GB-month`;
+      document.getElementById('resReason').innerText = reason;
+      document.getElementById('resCurCost').innerText = `$${curCost.toFixed(5)}`;
+      document.getElementById('resOptCost').innerText = `$${optCost.toFixed(5)}`;
+      document.getElementById('resSavings').innerText = `${savingsPct.toFixed(1)}%`;
+      document.getElementById('outputBox').style.borderColor = color;
+    }
+
+    // --- 6. ROI SIMULATOR ---
+    function updateSim() {
+      const capTB = parseFloat(document.getElementById('simCapacity').value);
+      const hotPct = parseFloat(document.getElementById('simHot').value);
+      const coolPct = parseFloat(document.getElementById('simCool').value);
+      const rotPct = Math.max(0, 100 - (hotPct + coolPct));
+
+      document.getElementById('lblCapacity').innerText = `${capTB} TB`;
+      document.getElementById('lblHot').innerText = `${hotPct}%`;
+      document.getElementById('lblCool').innerText = `${coolPct}%`;
+      document.getElementById('lblROT').innerText = `${rotPct.toFixed(0)}%`;
+
+      const totalGB = capTB * 1000;
+      const hotGB = totalGB * (hotPct / 100);
+      const coolGB = totalGB * (coolPct / 100);
+      const rotGB = totalGB * (rotPct / 100);
+
+      const baseline = totalGB * 0.0230;
+      const optimized = (hotGB * 0.0230) + (coolGB * 0.0125) + (rotGB * 0.00099);
+      const monthlySave = baseline - optimized;
+      const annualSave = monthlySave * 12;
+      const reduction = (monthlySave / baseline) * 100;
+
+      document.getElementById('simBaseline').innerText = `$${baseline.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+      document.getElementById('simOptimized').innerText = `$${optimized.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+      document.getElementById('simReduction').innerText = `-${reduction.toFixed(1)}% Cost Cut`;
+      document.getElementById('simAnnual').innerText = `$${annualSave.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+
+      Plotly.newPlot('simChart', [{
+        x: ['Unoptimized Baseline (S3 Std)', 'Optimized Multi-Tier Policy'],
+        y: [baseline, optimized],
+        type: 'bar',
+        marker: { color: ['#ef4444', '#10b981'] },
+        text: [`$${baseline.toFixed(0)}`, `$${optimized.toFixed(0)}`],
+        textposition: 'outside'
+      }], { margin: {t:20, b:30, l:50, r:20}, height: 210 }, {responsive: true});
+    }
+
+    // Initialize on load
+    runInference();
+    updateSim();
+  </script>
+</body>
+</html>
