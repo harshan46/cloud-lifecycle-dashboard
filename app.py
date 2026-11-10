@@ -4,8 +4,6 @@ SRM INSTITUTE OF SCIENCE AND TECHNOLOGY
 Department of Computational Intelligence | 21CSC314P - Big Data Essentials
 Project: An Integrated Distributed Framework for Automated Lifecycle Classification
          and Redundancy Mitigation in Large-Scale Repositories
-Lead Author: S Harshan (Reg. No: RA24110310013) | Batch: 10
-Faculty Guide: Dr. Shanmuganathan V (Assistant Professor)
 ========================================================================================
 Interactive Web Frontend & Executive Dashboard (Streamlit Application)
 """
@@ -229,15 +227,7 @@ tiering_svc = StorageTieringEngine()
 # SIDEBAR NAVIGATION
 # -----------------------------------------------------------------------------
 with st.sidebar:
-    st.markdown("### 🎓 Academic Information")
-    st.markdown("""
-    **Course:** 21CSC314P - Big Data Essentials  
-    **Author:** S Harshan (`RA24110310013`)  
-    **Batch:** 10  
-    **Guide:** Dr. Shanmuganathan V  
-    **Institution:** SRM Institute of Science & Technology  
-    """)
-    st.markdown("---")
+    
     
     st.markdown("### 🧭 Dashboard Navigation")
     menu = st.radio(
@@ -270,9 +260,9 @@ st.markdown("""
     <h1 style="margin: 0; font-size: 1.8rem; font-weight: 700;">An Integrated Distributed Framework for Automated Lifecycle Classification & Redundancy Mitigation</h1>
     <p style="margin-top: 6px; font-size: 0.95rem; color: #94a3b8;">Automated AWS S3 Multi-Tier Policy Optimization via Temporal Recency Machine Learning</p>
     <div style="margin-top: 12px; display: flex; flex-wrap: wrap; gap: 16px;">
-        <span class="author-pill">👤 <b>Lead Author:</b> S Harshan (Reg: <code>RA24110310013</code>)</span>
-        <span class="author-pill">👥 <b>Batch:</b> 10</span>
-        <span class="author-pill">👨‍🏫 <b>Faculty Guide:</b> Dr. Shanmuganathan V</span>
+        <span class="author-pill">☁️ <b>Cloud Target:</b> Amazon Web Services (AWS S3)</span>
+        <span class="author-pill">⚡ <b>Pipeline:</b> 4-Tier Medallion Architecture</span>
+        <span class="author-pill">🎯 <b>Optimization Status:</b> Active (43.10% Reduction)</span>
         <span class="author-pill">⚡ <b>Backend:</b> 100% Operational</span>
     </div>
 </div>
@@ -615,4 +605,4 @@ elif menu == "📑 Architecture & Review Notes":
     """)
 
 st.markdown("---")
-st.caption("21CSC314P - Big Data Essentials | Batch 10 | SRM Institute of Science & Technology")
+st.caption("21CSC314P - Big Data Essentials | Enterprise Cloud Storage Optimization Suite")
